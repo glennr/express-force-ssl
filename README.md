@@ -80,7 +80,7 @@ var fs = require('fs');
 var http = require('http');
 var https = require('https');
 
-var ssl_options = {
+var sslOptions = {
   key: fs.readFileSync('./keys/private.key'),
   cert: fs.readFileSync('./keys/cert.crt'),
   ca: fs.readFileSync('./keys/intermediate.crt')
@@ -88,7 +88,7 @@ var ssl_options = {
 
 var app = express();
 var server = http.createServer(app);
-var secureServer = https.createServer(ssl_options, app);
+var secureServer = https.createServer(sslOptions, app);
 
 app.use(express.bodyParser());
 app.use(forceSSL);
@@ -108,7 +108,7 @@ var fs = require('fs');
 var http = require('http');
 var https = require('https');
 
-var ssl_options = {
+var sslOptions = {
   key: fs.readFileSync('./keys/private.key')
   cert: fs.readFileSync('./keys/cert.crt')
   ca: fs.readFileSync('./keys/intermediate.crt')
@@ -117,7 +117,7 @@ var ssl_options = {
 var app = express();
 
 var server = http.createServer(app);
-var secureServer = https.createServer(ssl_options, app);
+var secureServer = https.createServer(sslOptions, app);
 
 app.use(express.bodyParser());
 app.use(app.router);
@@ -141,7 +141,7 @@ var app = express();
 app.set('httpsPort', 8443);
 
 var server = http.createServer(app);
-var secureServer = https.createServer(ssl_options, app);
+var secureServer = https.createServer(sslOptions, app);
 
 ...
 

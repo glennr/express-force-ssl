@@ -5,7 +5,7 @@ var express = require('express')
   , https = require('https')
   ;
 
-var ssl_options = {
+var sslOptions = {
   key: fs.readFileSync('./test/keys/localhost.key'),
   cert: fs.readFileSync('./test/keys/localhost.crt'),
   ca: fs.readFileSync('./test/keys/localhost.crt')
@@ -13,7 +13,7 @@ var ssl_options = {
 
 var app = express();
 var server = http.createServer(app);
-var secureServer = https.createServer(ssl_options, app);
+var secureServer = https.createServer(sslOptions, app);
 
 app.get('/', function(req, res){
   res.json({msg: 'accessible by http'});

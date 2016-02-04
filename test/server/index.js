@@ -7,7 +7,7 @@ var bodyParser = require('body-parser')
   ;
 
 module.exports = function (options) {
-  var ssl_options = {
+  var sslOptions = {
     key: fs.readFileSync('./test/keys/localhost.key'),
     cert: fs.readFileSync('./test/keys/localhost.crt')
   };
@@ -28,7 +28,7 @@ module.exports = function (options) {
   app.use(bodyParser.json());
 
   var server = http.createServer(app);
-  var secureServer = https.createServer(ssl_options, app);
+  var secureServer = https.createServer(sslOptions, app);
 
   /*
    Routes
