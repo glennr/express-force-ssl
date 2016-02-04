@@ -81,8 +81,8 @@ var http = require('http');
 var https = require('https');
 
 var ssl_options = {
-  key: fs.readFileSync('./keys/private.key')
-  cert: fs.readFileSync('./keys/cert.crt')
+  key: fs.readFileSync('./keys/private.key'),
+  cert: fs.readFileSync('./keys/cert.crt'),
   ca: fs.readFileSync('./keys/intermediate.crt')
 };
 
@@ -133,7 +133,7 @@ server.listen(80)
 
 Custom Server Port Support
 --------------------------
-If your server isn't listening on 80/443 respectively, you can change this pretty simply. 
+If your server isn't listening on 80/443 respectively, you can change this pretty simply.
 
 ```javascript
 
