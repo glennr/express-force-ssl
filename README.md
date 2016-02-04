@@ -138,7 +138,10 @@ If your server isn't listening on 80/443 respectively, you can change this prett
 ```javascript
 
 var app = express();
-app.set('httpsPort', 8443);
+
+app.set('forceSSLOptions', {
+  httpsPort: 8443,
+})
 
 var server = http.createServer(app);
 var secureServer = https.createServer(sslOptions, app);
